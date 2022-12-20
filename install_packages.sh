@@ -6,28 +6,7 @@ sudo yum update -y
 
 
 
-################### Install and enable Docker #########################################
-sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
 
-
-sudo yum install -y yum-utils
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo  
-
-
-sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin                 
-
-sudo systemctl start docker
-
-sudo systemctl enable docker
 
 ################### Install and enable Kubectl #########################################
 #sudo yum install -y kubelet kubeadm kubectl
@@ -46,3 +25,27 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest
 
 
 sudo rpm -Uvh minikube-latest.x86_64.rpm
+
+
+################### Install and enable Docker #########################################
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo  
+
+
+sudo yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin                 
+
+sudo systemctl start docker
+
+sudo systemctl enable docker
