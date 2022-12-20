@@ -26,6 +26,6 @@ Vagrant.configure("2") do |config|
         sudo systemctl restart sshd
       SHELL
       #install_jenkinshost.sh : This is the script that will take care of the installation of Java, Jenkins server and some utilities
-      minikube.vm.provision "shell", path: "install_pack.sh"
+      minikube.vm.provision "shell", path: "install_packages.sh"
     end
   end
