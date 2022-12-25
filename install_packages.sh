@@ -124,6 +124,13 @@ fi
 #Check for success message, if 0 the success
 echo $?
 echo 'script worked'
+echo '########################### Minikube Version ############################################'
+minikube version
 
+echo '########################## Kebectl Version ##############################################'
+kubectl version
+
+echo '########################## Docker Vaersion ##############################################'
+docker version | grep -i Version
 
 
