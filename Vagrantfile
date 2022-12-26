@@ -14,11 +14,11 @@ Vagrant.configure("2") do |config|
     config.vm.define "minikube" do |minikube|
       minikube.vm.box = "centos/7"
       minikube.vm.hostname = "minikube"
-      minikube.vm.network "private_network", ip: "192.168.56.173"
+      minikube.vm.network "private_network", ip: "192.168.56.153"
       #jenkinshost.vm.box_url = "utrains/centos7"
       minikube.vm.provider :virtualbox do |v|
         v.customize ["modifyvm", :id, "--memory", 2048]
-        v.customize ["modifyvm", :id, "--name", "minikube"]
+        v.customize ["modifyvm", :id, "--name", "minikube-helm"]
         v.customize ["modifyvm", :id, "--cpus", "2"]
       end
       config.vm.provision "shell", inline: <<-SHELL

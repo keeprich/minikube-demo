@@ -71,6 +71,8 @@ elif [ ${CURRENT_OS} == CentOS ]
 then 
     echo 'Success, You are using CentOS system' 
     yum update -y
+    yum install wget -y
+    yum install tar -y
     #All packages that you want to install will go here
     
     
@@ -125,5 +127,28 @@ fi
 echo $?
 echo 'script worked'
 
+echo '########################### Minikube Version ############################################'
+minikube version
+
+echo '########################## Kebectl Version ##############################################'
+kubectl version
+
+echo '########################## Docker Vaersion ##############################################'
+docker version | grep -i Version
 
 
+
+sleep 5
+
+######################################### Helm installation#######################################
+
+#wget https://get.helm.sh/helm-v3.6.0-linux-amd64.tar.gz
+#tar xvf helm-v3.6.0-linux-amd64.tar.gz 
+#sudo mv linux-amd64/helm /usr/local/bin
+#rm helm-v3.6.0-linux-amd64.tar.gz 
+#rm -rf linux-amd64
+
+
+echo '################################### Helm Version #########################################'
+
+#helm version
